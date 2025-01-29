@@ -1,0 +1,33 @@
+.form-search {
+  margin: 40px 0;
+  display: block;
+  .flex-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .input-container {
+    margin-bottom: -1.25em;
+  }
+  ::ng-deep .mat-button-toggle-checked .mat-icon {
+    background-color: #f7f2fa;
+    display: none;
+  }
+  .custom-toggle .mat-icon {
+    display: inline-block; /* Mantém apenas o ícone manual */
+  }
+  h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  mat-chip {
+    .inner {
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+  }
+}
