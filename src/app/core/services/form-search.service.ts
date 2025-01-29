@@ -43,6 +43,16 @@ export class FormSearchService {
     return description
   }
 
+  switchOriginDestination(): void {
+    const origin = this.formSearch.get('origin')?.value;
+    const destination = this.formSearch.get('destination')?.value;
+
+    this.formSearch.patchValue({
+      origin: destination,
+      destination: origin
+    });
+  }
+
   gainControl(name: string): FormControl {
     const control = this.formSearch.get(name);
     if (!control) {
@@ -63,16 +73,6 @@ export class FormSearchService {
   openDialog() {
     this.dialog.open(ModalComponent, {
       width: '50%'
-    });
-  }
-
-  changeOriginDestination(): void {
-    const origin = this.formSearch.get('origin')?.value;
-    const destination = this.formSearch.get('destination')?.value;
-
-    this.formSearch.patchValue({
-      origin: destination,
-      destination: origin
     });
   }
 }

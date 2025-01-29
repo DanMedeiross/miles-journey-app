@@ -10,7 +10,7 @@ import { StatementService } from '../../../core/services/statement.service';
   styleUrl: './statements.component.scss'
 })
 export class StatementsComponent {
-  statements!: Statement[];
+  statements: Statement[] = [];
 
   constructor(private service: StatementService) {}
 

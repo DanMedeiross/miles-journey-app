@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './control-button.component.scss'
 })
 export class ControlButtonComponent {
-  @Input() operation: 'increase' | 'decrease' = 'increase';
+  @Input() operation: 'increase' | 'decrease' = "increase";
   @Input() src = '';
   @Input() alt = '';
 }
