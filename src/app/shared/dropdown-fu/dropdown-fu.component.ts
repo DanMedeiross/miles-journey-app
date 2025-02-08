@@ -1,8 +1,8 @@
 import { map, Observable, startWith } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
-import { FederativeUnitService } from '../../../core/services/federative-unit.service';
-import { FederativeUnit } from '../../../core/types/type';
+import { FederativeUnitService } from '../../core/services/federative-unit.service';
+import { FederativeUnit } from '../../core/types/type';
 
 @Component({
   selector: 'app-dropdown-fu',
@@ -14,6 +14,7 @@ import { FederativeUnit } from '../../../core/types/type';
 export class DropdownFuComponent implements OnInit {
   @Input() label: string = '';
   @Input() iconPrefix: string = '';
+  @Input() placeholder: string = '';
   @Input() control!: FormControl;
 
   federativeUnits: FederativeUnit[] = [];
@@ -33,11 +34,16 @@ export class DropdownFuComponent implements OnInit {
     )
   }
 
-  filterFus(value: string): FederativeUnit[] {
-    const filteredValue = value?.toLowerCase();
+  filterFus(value: string | FederativeUnit): FederativeUnit[] {
+    const nameFu = typeof value === 'string' ? value : value?.nome;
+    const filteredValue = nameFu?.toLowerCase();
     const result = this.federativeUnits.filter(
-      state => state.nome.toLowerCase().includes(filteredValue)
+      estado => estado.nome.toLowerCase().includes(filteredValue)
     )
     return result;
+  }
+
+  displayFn(estado: FederativeUnit): string {
+    return estado && estado.nome ? estado.nome : '';
   }
 }

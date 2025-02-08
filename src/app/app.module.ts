@@ -26,14 +26,22 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ModalComponent } from './shared/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ControlButtonComponent } from './shared/control-button/control-button.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { OffersComponent } from './pages/home/offers/offers.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { DropdownFuComponent } from './shared/form-search/dropdown-fu/dropdown-fu.component';
+import { DropdownFuComponent } from './shared/dropdown-fu/dropdown-fu.component';
 import { StatementsComponent } from './pages/home/statements/statements.component';
 import { PassengerSelectorComponent } from './shared/passenger-selector/passenger-selector.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './pages/login/login.component';
+import { FormBaseComponent } from './shared/form-base/form-base.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { RegisterComponent } from './pages/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { authenticationInterceptor } from './core/interceptors/authentication.interceptor';
 
 
 @NgModule({
@@ -54,6 +62,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DropdownFuComponent,
     StatementsComponent,
     PassengerSelectorComponent,
+    LoginComponent,
+    FormBaseComponent,
+    RegisterComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,10 +84,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatCheckboxModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient(withInterceptors([authenticationInterceptor]))
   ],
   bootstrap: [AppComponent]
 })

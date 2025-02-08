@@ -28,19 +28,25 @@
       </mat-chip>
     </div>
     <div class="flex-container">
-      <app-dropdown-fu
-        label="Origin"
-        iconPrefix="flight_takeoff"
-        [control]="formSearchService.gainControl('origin')">
-      </app-dropdown-fu>
+      <div class="drop-container">
+        <app-dropdown-fu
+          label="Origin"
+          iconPrefix="flight_takeoff"
+          placeholder="Origin"
+          [control]="formSearchService.gainControl('origin')">
+        </app-dropdown-fu>
+      </div>
       <button mat-icon-button (click)="formSearchService.switchOriginDestination()">
         <mat-icon>sync_alt</mat-icon>
       </button>
-      <app-dropdown-fu
-        label="Destination"
-        iconPrefix="flight_land"
-        [control]="formSearchService.gainControl('destination')">
-      </app-dropdown-fu>
+      <div class="drop-container">
+        <app-dropdown-fu
+          label="Destination"
+          iconPrefix="flight_land"
+          placeholder="Destination"
+          [control]="formSearchService.gainControl('destination')">
+        </app-dropdown-fu>
+      </div>
       <mat-form-field class="input-container" appearance="outline">
         <mat-label>Departure date</mat-label>
         <input matInput [matDatepicker]="departure">

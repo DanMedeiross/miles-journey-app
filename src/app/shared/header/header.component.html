@@ -2,9 +2,19 @@
   <mat-toolbar>
     <img src="/images/logo.png" alt="Journey application logo">
     <span class="spacer"></span>
-    <button mat-button>Sell miles</button>
-    <button mat-button>About</button>
-    <button mat-flat-button>Register</button>
-    <button mat-stroked-button>Login</button>
+    <div class="links-toolbar">
+      <button mat-button>Sell miles</button>
+      <button mat-button>About</button>
+      <ng-container *ngIf="user$ | async as userPerson, else login">
+        <a routerLink="/profile">
+          <img src="/icons/user.png" alt="User icon">
+        </a>
+        <button mat-stroked-button (click)="logout()">Exit</button>
+      </ng-container>
+      <ng-template #login>
+        <button routerLink="/register" mat-flat-button>Register</button>
+        <button routerLink="/login" mat-stroked-button>Login</button>
+      </ng-template>
+    </div>
   </mat-toolbar>
 </header>
