@@ -1,31 +1,31 @@
-export interface Offer {
+export interface Promocao {
+    id: number
+    destino: string
+    imagem: string
+    preco: number
+}
+
+export interface UnidadeFederativa {
     id: number;
-    destino: string;
-    imagem: string;
-    preco: number;
+    nome: string;
+    sigla: string;
 }
 
-export interface FederativeUnit {
-  id: number;
-  nome: string;
-  sigla: string;
+export interface Depoimento {
+    id: number;
+    texto: string;
+    autor: string;
+    avatar: string;
 }
 
-export interface Statement {
-  id: number;
-  texto: string;
-  autor: string;
-  avatar: string;
-}
-
-export interface UserPerson {
+export interface PessoaUsuaria {
   nome: string;
   nascimento: string;
   cpf: string;
   telefone: string;
   email: string;
   senha: string;
-  genero: string;
   cidade: string;
-  estado: FederativeUnit;
+  estado: UnidadeFederativa;
+  genero: string;
 }

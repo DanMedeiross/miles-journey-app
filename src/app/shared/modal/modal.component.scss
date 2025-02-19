@@ -1,5 +1,5 @@
 .modal {
-  border: 1px solid #1d1b20;
+  border: 1px solid #1D1B20;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -7,11 +7,12 @@
     font-size: 32px;
     padding: 12px;
   }
-  .age-selection {
+  .selecao-idade {
     display: flex;
     justify-content: space-between;
+    
   }
-  .category-selection {
+  .selecao-categoria {
     margin-top: 32px;
     color: #1D1B20;
   }

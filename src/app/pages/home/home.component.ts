@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Offer } from '../../core/types/type';
-import { OfferService } from '../../core/services/offer.service';
+import { PromocaoService } from 'src/app/core/services/promocao.service';
 
 @Component({
   selector: 'app-home',
-  standalone: false,
-
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private offerService : OfferService) {}
+  constructor( private servicoPromocao: PromocaoService ) {
 
+  }
   ngOnInit(): void {
-    this.offerService.list().subscribe(answer => {console.log(answer)});
+    this.servicoPromocao.listar()
+      .subscribe(
+        resposta => {
+          console.log(resposta)
+        }
+      )
   }
 }

@@ -64,12 +64,3 @@
     }
   }
 }
-
-::ng-deep mat-form-field input::placeholder {
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-
-::ng-deep mat-form-field input:focus::placeholder {
-  opacity: 1;
-}
