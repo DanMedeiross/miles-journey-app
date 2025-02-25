@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CadastroService } from 'src/app/core/services/cadastro.service';
-import { FormularioService } from 'src/app/core/services/formulario.service';
-import { PessoaUsuaria } from 'src/app/core/types/type';
+import { CadastroService } from '../../core/services/cadastro.service';
+import { FormularioService } from '../../core/services/formulario.service';
+import { PessoaUsuaria } from '../../core/types/type';
 
 @Component({
   selector: 'app-cadastro',
+  standalone: false,
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
@@ -13,13 +14,12 @@ export class CadastroComponent {
   constructor(
     private formularioService: FormularioService,
     private cadastroService: CadastroService,
-    private router: Router
-  ) { }
+    private router: Router) {}
 
   cadastrar() {
     const formCadastro = this.formularioService.getCadastro();
 
-    if (formCadastro?.valid) {
+    if(formCadastro?.valid) {
       const novoCadastro = formCadastro.getRawValue() as PessoaUsuaria;
       console.log(novoCadastro)
       this.cadastroService.cadastrar(novoCadastro).subscribe({

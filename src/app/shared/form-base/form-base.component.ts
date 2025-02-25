@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { FormularioService } from 'src/app/core/services/formulario.service';
-import { UnidadeFederativa } from 'src/app/core/types/type';
+import { FormularioService } from '../../core/services/formulario.service';
+import { UnidadeFederativa } from '../../core/types/type';
 import { FormValidations } from '../form-validations';
 
 @Component({
   selector: 'app-form-base',
+  standalone: false,
   templateUrl: './form-base.component.html',
   styleUrls: ['./form-base.component.scss']
 })

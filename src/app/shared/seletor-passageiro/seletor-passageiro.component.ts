@@ -3,6 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-seletor-passageiro',
+  standalone: false,
   templateUrl: './seletor-passageiro.component.html',
   styleUrls: ['./seletor-passageiro.component.scss'],
   providers: [
@@ -14,7 +15,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class SeletorPassageiroComponent implements ControlValueAccessor {
-
   @Input() titulo: string = ''
   @Input() subtitulo: string = ''
 
@@ -25,14 +25,16 @@ export class SeletorPassageiroComponent implements ControlValueAccessor {
   writeValue(val: any): void {
     this.value = val
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn
   }
+
   registerOnTouched(fn: any): void {
-    this.onTouch = fn
+    this.onChange = fn
   }
+
   setDisabledState?(isDisabled: boolean): void {
-    
   }
 
   incrementar () {
@@ -48,5 +50,4 @@ export class SeletorPassageiroComponent implements ControlValueAccessor {
       this.onTouch()
     }
   }
-
 }

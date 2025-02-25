@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PromocaoService } from 'src/app/core/services/promocao.service';
-import { Promocao } from 'src/app/core/types/type';
+import { PromocaoService } from '../../../core/services/promocao.service';
+import { Promocao } from '../../../core/types/type';
 
 @Component({
   selector: 'app-promocoes',
+  standalone: false,
   templateUrl: './promocoes.component.html',
   styleUrls: ['./promocoes.component.scss']
 })

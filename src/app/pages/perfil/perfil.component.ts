@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CadastroService } from 'src/app/core/services/cadastro.service';
-import { FormularioService } from 'src/app/core/services/formulario.service';
-import { TokenService } from 'src/app/core/services/token.service';
-import { UserService } from 'src/app/core/services/user.service';
-import { PessoaUsuaria } from 'src/app/core/types/type';
+import { CadastroService } from '../../core/services/cadastro.service';
+import { FormularioService } from '../../core/services/formulario.service';
+import { TokenService } from '../../core/services/token.service';
+import { UserService } from '../../core/services/user.service';
+import { PessoaUsuaria } from '../../core/types/type';
 
 @Component({
   selector: 'app-perfil',
+  standalone: false,
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.scss']
 })
@@ -27,8 +28,7 @@ export class PerfilComponent implements OnInit{
     private tokenService: TokenService,
     private formularioService: FormularioService,
     private userService: UserService,
-    private router: Router
-  ) { }
+    private router: Router) {}
 
   ngOnInit() {
     this.token = this.tokenService.retornarToken();
