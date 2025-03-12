@@ -1,0 +1,11 @@
+<section class="homepage">
+  <app-banner src="/images/homepage-banner.png" alt="Banner da aplicação Jornada"></app-banner>
+  <app-container>
+    <app-form-busca (realizarBusca)="navegarParaBusca($event)"></app-form-busca>
+    <h2>Promoções</h2>
+    <app-promocoes></app-promocoes>
+    <h2>Depoimentos</h2>
+    <app-depoimentos></app-depoimentos>
+  </app-container>
+  <app-banner src="/images/footer-homepage-banner.png" alt="Banner da aplicação Jornada"></app-banner>
+</section>

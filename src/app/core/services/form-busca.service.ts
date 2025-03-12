@@ -9,12 +9,11 @@ import { DadosBusca, UnidadeFederativa } from '../types/type';
   providedIn: 'root'
 })
 export class FormBuscaService {
-
   formBusca: FormGroup;
 
   constructor(private dialog: MatDialog) {
-    const somenteIda = new FormControl(false, [Validators.required])
-    const dataVolta = new FormControl(null, [Validators.required])
+    const somenteIda = new FormControl(false, [Validators.required]);
+    const dataVolta = new FormControl(null, [Validators.required]);
 
     this.formBusca = new FormGroup({
       somenteIda,
@@ -30,21 +29,21 @@ export class FormBuscaService {
       companhias: new FormControl(null),
       precoMin: new FormControl(null),
       precoMax: new FormControl(null)
-    })
+    });
     somenteIda.valueChanges.subscribe(somenteIda => {
-      if(somenteIda){
+      if(somenteIda) {
         dataVolta.disable();
-        dataVolta.setValidators(null)
-      }else{
+        dataVolta.setValidators(null);
+      } else {
         dataVolta.enable();
-        dataVolta.setValidators([Validators.required])
+        dataVolta.setValidators([Validators.required]);
       }
-      dataVolta.updateValueAndValidity
-    })
+      return dataVolta.updateValueAndValidity;
+    });
   }
 
-  getDescricaoPassageiros (): string {
-    let descricao = ''
+  getDescricaoPassageiros(): string {
+    let descricao = '';
 
     const adultos = this.formBusca.get('adultos')?.value;
     if (adultos && adultos > 0) {
@@ -61,7 +60,7 @@ export class FormBuscaService {
       descricao += `${descricao ? ', ' : ''}${bebes} bebê${bebes > 1 ? 's' : ''}`;
     }
 
-    return descricao
+    return descricao;
   }
 
   trocarOrigemDestino(): void {
@@ -116,26 +115,26 @@ export class FormBuscaService {
     if(precoMaxControl.value) {
       dadosBusca.precoMax = precoMaxControl.value;
     }
-    return dadosBusca
+    return dadosBusca;
   }
 
   alterarTipo (evento: MatChipSelectionChange, tipo: string) {
     if (evento.selected) {
       this.formBusca.patchValue({
         tipo,
-      })
-      console.log('Tipo de passagem alterado para: ', tipo)
+      });
+      console.log('Tipo de passagem alterado para: ', tipo);
     }
   }
 
   openDialog() {
     this.dialog.open(ModalComponent, {
       width: '50%'
-    })
+    });
   }
 
   get formEstaValido(){
-    return this.formBusca.valid
+    return this.formBusca.valid;
   }
 
   resetarFiltros() {
@@ -146,6 +145,6 @@ export class FormBuscaService {
       somenteIda: false,
       passageirosAdultos: 1,
       tipo: 'Executiva'
-    })
+    });
   }
 }
